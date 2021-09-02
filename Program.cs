@@ -1,97 +1,118 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace Week1
+namespace Homework1
 {
     class Program
-    /////////นับสระ
-    /*{ 
-        static bool isVowel(char input) 
-        {
-            return input == 'a' || input == 'e' || input == 'i' || input == 'o' || input == 'u';
-        }
+    {
         static void Main(string[] args)
         {
-            int counter = 0;
-
-            Console.Write("input name: ");
-            string name = Console.ReadLine();
-            string lowerString = name.ToLower();
 
 
-            foreach (char value in lowerString.ToCharArray()) {
-                if (isVowel(value)) {
-                    counter++;
-                }
-            }
-            Console.WriteLine(counter);
-             
-        }
-    }*/
+            User jame = new User("jame");
+            jame.name = "jame watson";
+            jame.email = "jame@gmail.com";
 
-    /*{
-        ////////แปลงหน่วย
-        static void Main(string[] args)
-        {
-            Console.WriteLine(FeetToInches(30));
-            Console.WriteLine(FeetToInches(100));
-        }
-        static int FeetToInches(int feet) {
-            int inches = feet * 12;
+            TShirt shirt1 = new TShirt("L", "Red", 500);
+            TShirt shirt2 = new TShirt("M", "Black", 750);
+            TShirt shirt3 = new TShirt("M", "Black", 625);
 
-            return inches;
-        }
-    }*/
+            List<TShirt> OderTShirt = new List<TShirt>();
 
-    ///////////เปลี่ยนตัวอักษรให้เป็นตัวใหญ่
-    /*{
-        static void Main(string[] args)
-        {
-            string message = "Hello World";
-            string upperMessage = message.ToUpper();
+            jame.addlist(shirt1);
+            jame.addlist(shirt2);
+            jame.addlist(shirt3);
 
-            Console.WriteLine(upperMessage);
-        }
-    }*/
-    //////////อักษรมาต่อกัน
-    /*{
-        static void Main(string[] args) 
-        {
+            Address youraddress = new Address();
+            Console.WriteLine("Street :" + youraddress.street);
+            Console.WriteLine("City :" + youraddress.City);
+            Console.WriteLine("Zipcode :" + youraddress.zipCode);
+            jame.getShoppingCart();
 
-           
-            string word = "Hello World";
-            int Num = 2021;
-            word = word + Num.ToString();
-            Console.WriteLine(word);
-        }
-    }*/
+            
 
-    /*{ 
-    class UnitConverter {
-
-        int ratio;
-        public UnitConverter(int unitRatio) 
-            {
-
-            ratio = unitRatio;        
-        }
-
-        public int Convert(int unit) {
-            return unit * ratio;
         }
     }
-    
-        static void Main(string[] args) {
-            UnitConverter feetToInchesConverter = new UnitConverter(12);
-            UnitConverter milestoFeetConverter = new UnitConverter(5280);
+    class TShirt
+    {
 
-            Console.WriteLine(feetToInchesConverter.Convert(30));
-            Console.WriteLine(feetToInchesConverter.Convert(100));
-            Console.WriteLine(feetToInchesConverter.Convert(milestoFeetConverter.Convert(1)));
+        public string size;
+        public string color;
+        public float price;
+
+        public TShirt(string valuesize, string valuecolor, float valueprice)
+        {
+            size = valuesize;
+            color = valuecolor;
+            price = valueprice;
         }
 
+    }
+    class ShoppingCart {
 
-    }*/
-    { 
-    
+        private List<TShirt> OderTShirt = new List<TShirt>();
+
+       /* public ShoppingCart(string valueName)
+        {
+
+            OderTShirt = new List<TShirt>();
+        }*/
+       /* public void addlist(TShirt shirt)
+        {
+            OderTShirt.Add(shirt);
+
+        }*/
+       
+    }
+    class User
+    {
+        public string name;
+
+        public string email;
+
+        private List<TShirt> OderTShirt = new List<TShirt>();
+
+        public User(string valueName)
+        {
+
+            OderTShirt = new List<TShirt>();
+        }
+        public void addlist(TShirt shirt)
+        {
+            OderTShirt.Add(shirt);
+
+        }
+
+        public void getShoppingCart()
+        {
+            float i = 0;
+            foreach (TShirt item in OderTShirt)
+            {
+                i = i+item.price;   
+            }
+            Console.WriteLine(i);
+
+        }
+
+    }
+    class Address
+    {
+        public string street;
+
+        public string City;
+
+        public string zipCode;
+
+        public Address()
+        {
+
+            street = "131/75,Phutthamonthon";
+            City = "Nakron Prethom";
+            zipCode = "10180";
+
+        }
     }
 }
+       
+    
+
