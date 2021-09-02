@@ -52,16 +52,7 @@ namespace Homework1
 
         private List<TShirt> OderTShirt = new List<TShirt>();
 
-       /* public ShoppingCart(string valueName)
-        {
-
-            OderTShirt = new List<TShirt>();
-        }*/
-       /* public void addlist(TShirt shirt)
-        {
-            OderTShirt.Add(shirt);
-
-        }*/
+      
        
     }
     class User
